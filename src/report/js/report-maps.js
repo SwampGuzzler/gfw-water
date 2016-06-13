@@ -129,7 +129,7 @@ const getCustomFeature = (params) => {
     if (res.features.length === 1) {
       let feature = res.features[0];
       let area = feature.attributes[fieldConfig.area];
-      performCustomAnalysis(feature.geometry, area, config.canopyDensity).then(function (attrs) {
+      performCustomAnalysis(feature, area, config.canopyDensity).then(function (attrs) {
         lang.mixin(feature.attributes, attrs);
         handleWatershed(res);
       });

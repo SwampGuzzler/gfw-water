@@ -89,18 +89,19 @@ const esriQuery = (url, content, geometry) => {
 * done in the map and saved in the feature service so it does not to be included here
 *************************************************************************************
 * This function performs all the custom analysis at once, it is used for the report
-* @param {esriGeometryPolygon} geometry - Valid Esri Polygon to analyze
+* @param {Feature} feature - Esri feature containing the geometry needed for analysis
 * @param {number} area - Area of the provided polygon
 * @param {number} canopyDensity - Value between 0 - 100, chosen by user in the map
 * @return {deferred} promise
 */
-export const performCustomAnalysis = (geometry, area, canopyDensity) => {
-  let waterIntakeConfig = analysisConfig[KEYS.WATER];
-  let majorDamsConfig = analysisConfig[KEYS.DAMS];
-  let treeDensityConfig = analysisConfig[KEYS.TCD];
-  let treeLossConfig = analysisConfig[KEYS.TCL];
-  let promise = new Deferred();
-  let promises = {};
+export const performCustomAnalysis = (feature, area, canopyDensity) => {
+  const {geometry} = feature;
+  const waterIntakeConfig = analysisConfig[KEYS.WATER];
+  const majorDamsConfig = analysisConfig[KEYS.DAMS];
+  const treeDensityConfig = analysisConfig[KEYS.TCD];
+  const treeLossConfig = analysisConfig[KEYS.TCL];
+  const promise = new Deferred();
+  const promises = {};
 
   // Start the promises and give them an id, then pass them to all
   // Major Dams Analysis
