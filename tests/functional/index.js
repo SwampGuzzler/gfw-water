@@ -60,7 +60,7 @@ define(function (require) {
         .findByCssSelector('#googleTranslate')
           .getVisibleText()
           .then(function (text) {
-            assert.strictEqual(text, 'SELECT LANGUAG',
+            assert.strictEqual(text, 'SELECT LANGUAGE',
               'The Home page GFW header should load properly with a Select Language element.');
           });
     }
