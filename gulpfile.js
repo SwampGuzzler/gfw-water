@@ -1,6 +1,8 @@
 var minifyInline = require('gulp-minify-inline');
 var autoprefixer = require('gulp-autoprefixer');
 var browserSync = require('browser-sync');
+var shell = require('gulp-shell');
+var open = require('open');
 var imagemin = require('gulp-imagemin');
 var stylus = require('gulp-stylus');
 var locals = require('./locals');
@@ -30,7 +32,7 @@ var config = {
   },
   stylus: {
     watch: 'src/css/**/*.styl',
-    src: ['src/css/home.styl', 'src/css/map.styl', 'src/css/report.styl', 'src/css/report-print.styl', 'src/css/about.styl', ],
+    src: ['src/css/home.styl', 'src/css/map.styl', 'src/css/report.styl', 'src/css/report-print.styl', 'src/css/about.styl'],
     build: 'build/css',
     dist: 'dist/css'
   },
@@ -115,6 +117,35 @@ gulp.task('copy-assets', ['babel-polyfill'], function () {
     .pipe(gulp.dest(config.copy.ion.dest));
   gulp.src(config.copy.polyfill.src)
     .pipe(gulp.dest(config.copy.polyfill.dest));
+});
+
+gulp.task('open', function () {
+  open('http://localhost/lucas-water/node_modules/intern/client.html?config=tests/intern');
+});
+
+gulp.task('intern', shell.task([
+    // Fire up phantom browser
+    'node_modules/intern/bin/intern-runner.js config=tests/intern --reporters=Pretty'
+    //close browser
+]));
+
+gulp.task('selenium', shell.task([
+    // Fire up phantom browser
+    'pwd',
+    'java -jar tests/lib/selenium-server-standalone-2.46.0.jar -Dwebdriver.chrome.driver=node_modules/chromedriver/bin/chromedriver'//,
+]));
+
+gulp.task('stop-server', ['intern'], shell.task([
+    'curl http://localhost:4444/selenium-server/driver/?cmd=shutDownSeleniumServer'
+]));
+
+gulp.task('browser', function() {
+    gulp.run('selenium');
+    setTimeout(function () {
+      console.log('inside timeout');
+      // gulp.run('intern')
+      gulp.run('stop-server');
+    }, 5000);
 });
 
 gulp.task('browser-sync', function () {
