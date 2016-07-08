@@ -16,18 +16,50 @@ define(function (require) {
 
   });
 
+  // registerSuite({
+  //   name: 'index',
+  //
+  //   'Layer Panel Header Count': function () {
+  //     return this.remote
+  //       .get(require.toUrl('build/map/index.html'))
+  //       .setFindTimeout(3000)
+  //       .findByCssSelector('.active-layer-count')
+  //         .getVisibleText()
+  //         .then(function (text) {
+  //           assert.strictEqual(text, '(0)',
+  //             'There should be 0 layers turned on by default in Know Your Watershed');
+  //         });
+  //   }
+  // });
+
   registerSuite({
     name: 'index',
 
-    'Layer Panel Header Count': function () {
+    'About Page Title': function () {
       return this.remote
-        .get(require.toUrl('build/index.html'))
-        .setFindTimeout(5000)
-        .findByCssSelector('.active-layer-count')
+        .get(require.toUrl('build/about/index.html'))
+        .setFindTimeout(3000)
+        .findByCssSelector('.page-title')
           .getVisibleText()
           .then(function (text) {
-            assert.strictEqual(text, '(4)',
-              'There should be 4 layers turned on by default, and counted in the layers list header.');
+            assert.strictEqual(text, 'Learn More',
+              'The About page should load properly with a title of Learn More.');
+          });
+    }
+  });
+
+  registerSuite({
+    name: 'index',
+
+    'Home Page Header': function () {
+      return this.remote
+        .get(require.toUrl('build/index.html'))
+        .setFindTimeout(3000)
+        .findByCssSelector('#googleTranslate')
+          .getVisibleText()
+          .then(function (text) {
+            assert.strictEqual(text, 'SELECT LANGUAGE',
+              'The Home page GFW header should load properly with a Select Language element.');
           });
     }
   });
