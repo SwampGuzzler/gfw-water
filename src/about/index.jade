@@ -1,0 +1,168 @@
+doctype html
+html
+  head
+    title #{about.title}
+    include ../templates/meta.jade
+    style
+      :stylus
+        @require '../css/base'
+        @require '../css/about'
+    link(rel='stylesheet', href='//fonts.googleapis.com/css?family=Fira+Sans:400,500,300')
+    link(rel='icon', href='../css/images/favicon.ico')
+  
+  body
+    include ../templates/svgAssets.jade
+    div#headerGfw
+    div.gfw-water-logo
+    a.page-aqueduct-link(href="http://www.wri.org/our-work/project/aqueduct", target="_blank")
+    include ../templates/topNavigation
+    div#title.back-pebble
+      section
+        div.content-header
+          h1.page-title #{about.header}
+          h2.page-description #{about.description}
+
+    section
+      div.content-container
+        div.content-aside
+          div.content-menu
+            ul#menu
+              li.pointer.active ABOUT GFW WATER
+              li.pointer BEYOND THE NUMBERS
+              li.pointer PUBLICATIONS AND BLOGS
+              li.pointer TUTORIALS
+
+        div.content-body
+          div#one.content-subpage.active
+            h3 #{about.content.about[0]}
+            p #{about.content.about[1]}
+            p #{about.content.about[2]}
+            p #{about.content.about[3]}
+
+          div#two.content-subpage
+            h3 #{about.content.numbers.title}
+            h4 #{about.content.numbers.header}
+            p #{about.content.numbers.intro}
+            table
+              th #{about.content.numbers.table.headers[0]}
+              th #{about.content.numbers.table.headers[1]}
+              th #{about.content.numbers.table.headers[2]}
+              th #{about.content.numbers.table.headers[3]}
+              tr
+                td #{about.content.numbers.table.rowOne[0]}
+                td #{about.content.numbers.table.rowOne[1]}
+                td 
+                  p <strong>#{about.content.numbers.table.rowOne[2].openingOne}</strong>#{about.content.numbers.table.rowOne[2].closingOne}
+                  p <strong>#{about.content.numbers.table.rowOne[2].openingTwo}</strong>#{about.content.numbers.table.rowOne[2].closingTwo}
+                  p <strong>#{about.content.numbers.table.rowOne[2].openingThree}</strong>#{about.content.numbers.table.rowOne[2].closingThree}
+                td
+                  ul
+                    li 
+                      a(href='http://www.nyc.gov/html/dep/html/watershed_protection/index.shtml') New York, NY, United States
+                    li 
+                      a(href='https://www.pwd.org/watershed-protection') Portland, ME, United States
+                    li 
+                      a(href='http://cdkn.org/resource/private-conservation-agreements-support-climate-action-ecuadors-socio-bosque-programme/?loclang=en_gb') Quito, Ecuador
+              tr
+                td #{about.content.numbers.table.rowTwo[0]}
+                td #{about.content.numbers.table.rowTwo[1]}
+                td 
+                  p <strong>#{about.content.numbers.table.rowTwo[2].openingOne}</strong>#{about.content.numbers.table.rowTwo[2].closingOne}
+                  p <strong>#{about.content.numbers.table.rowTwo[2].openingTwo}</strong>#{about.content.numbers.table.rowTwo[2].closingTwo}
+                  p <strong>#{about.content.numbers.table.rowTwo[2].openingThree}</strong>#{about.content.numbers.table.rowTwo[2].closingThree}
+                td
+                  ul
+                    li
+                      a(href='http://www.wri.org/sites/default/files/WRI_Restoration_Diagnostic_Case_Example_China.pdf') Beijing, China
+                    li
+                      a(href='http://www.wri.org/sites/default/files/WRI_Restoration_Diagnostic_Case_Example_India_1.pdf') Multiple locations, India
+                    li
+                      a(href='http://www.watershedconnect.org/programs/Projeto-Produtores-de-A-gua-e-Floresta-Rio-de-Janeiro') Rio de Janeiro, Brazil
+                    li
+                      a(href='http://www.watershedmarkets.org/casestudies/Costa_Rica_National_PES_eng.html') Multiple locations, Costa Rica
+                    li
+                      a(href='http://www.wri.org/sites/default/files/WRI_Restoration_Diagnostic_Case_Example_Ethiopia.pdf') Humbo, Ethiopia
+              tr
+                td #{about.content.numbers.table.rowThree[0]}
+                td #{about.content.numbers.table.rowThree[1]}
+                td 
+                  p <strong>#{about.content.numbers.table.rowThree[2].openingOne}</strong>#{about.content.numbers.table.rowThree[2].closingOne}
+                  p <strong>#{about.content.numbers.table.rowThree[2].openingTwo}</strong>#{about.content.numbers.table.rowThree[2].closingTwo}
+                  p <strong>#{about.content.numbers.table.rowThree[2].openingThree}</strong>#{about.content.numbers.table.rowThree[2].closingThree}
+                td
+                  ul
+                    li
+                      a(href='http://www.eweb.org/sourceprotection/vip') Eugene, OR, United States
+                    li
+                      a(href='http://www.forest-trends.org/documents/files/doc_4896.pdf') Lima, Peru
+                    li
+                      a(href='http://www.watershedconnect.org/programs/The-Catchment-Sensitive-Farming-Capital-Grant-Scheme') Paris, France
+              tr
+                td #{about.content.numbers.table.rowFour[0]}
+                td #{about.content.numbers.table.rowFour[1]}
+                td 
+                  p <strong>#{about.content.numbers.table.rowFour[2].openingOne}</strong>#{about.content.numbers.table.rowFour[2].closingOne}
+                td
+                  ul
+                    li
+                      a(href='http://sustainablecommunitiesleadershipacademy.org/resource_files/documents/denver-forests-to-faucets-partnership.pdf') Denver, CO, United States
+                    li
+                      a(href='http://www.fs.fed.us/rm/pubs_other/rmrs_2009_smith_d001.pdf') Middle Rio Grande, NM, United States
+                    li
+                      a(href='http://www.wri.org/blog/2014/04/preventing-forest-fires-indonesia-focus-riau-province-peatland-and-illegal-burning') Riau, Indonesia
+
+          div#three.content-subpage.gfw-partnership
+            h3 #{about.content.publications[0]}
+            p <i>#{about.content.publications[1]}</i>
+            p #{about.content.publications[2]}
+            p #{about.content.publications[3]}
+            p #{about.content.publications[4]}
+            p 
+              a(href='http://www.wri.org/our-work/project/natural-infrastructure-water/blog' target='_blank') wri.org/our-work/project/natural-infrastructure-water/blog
+          
+          div#four.content-subpage.gfw-partnership
+            h3 #{about.content.tutorials[0]}
+            p #{about.content.tutorials[1]}
+            p
+              a(href='http://globalforestwatch.org' target='_blank') GFW Home Page
+
+    script. //
+      var links = [
+        'one',
+        'two',
+        'three',
+        'four'
+      ];
+      var menuItems = [].slice.call(document.querySelectorAll('#menu li'));
+
+      document.addEventListener('DOMContentLoaded', function (event) {
+        menuItems.forEach(function (item, index) {
+          item.onclick = function () {
+
+            menuItems.forEach(function (item) {
+              item.classList.remove('active');
+            });
+
+            this.classList.add('active');
+
+            links.forEach(function (link) {
+              document.getElementById(link).className = document.getElementById(link).className.replace('active', '');
+            });
+            var element = document.getElementById(links[index])
+            element.className = element.className + ' active'
+            //-element.scrollIntoView();
+          };
+        });
+      });
+    div#footerGfw
+    div#root.layout-content
+    div#share-modal.modal-wrapper.hidden
+    include ../templates/gfwAssets.jade
+    script.
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-48182293-1', 'auto');
+      ga('send', 'pageview');
