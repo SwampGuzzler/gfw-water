@@ -40,6 +40,9 @@ const utils = {
   * @return {boolean}
   */
   copySelectionFrom: el => {
+    if (!el) {
+      return false;
+    }
     let status = false;
     if (!utils.supportsExecCommand()) {
       return status;

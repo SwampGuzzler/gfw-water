@@ -67,15 +67,15 @@ define(function (require) {
 
   });
 
-  registerSuite({
-
-    name: 'appUtils.copySelectionFrom',
-
-    'Should return a boolean': function () {
-      expect(typeof appUtils.copySelectionFrom() === 'boolean').to.be.ok;
-    }
-
-  });
+  // registerSuite({
+  //
+  //   name: 'appUtils.copySelectionFrom',
+  //
+  //   'Should return a boolean': function () {
+  //     expect(typeof appUtils.copySelectionFrom() === 'boolean').to.be.ok;
+  //   }
+  //
+  // });
 
   registerSuite({
 
