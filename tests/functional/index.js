@@ -37,8 +37,8 @@ define(function (require) {
 
     'About Page Title': function () {
       return this.remote
-        // .get(require.toUrl('build/about/index.html'))
-        .get(require.toUrl('dist/about/index.html'))
+        .get(require.toUrl('www/about/index.html'))
+        // .get(require.toUrl('dist/about/index.html'))
         .setFindTimeout(3000)
         .findByCssSelector('.page-title')
           .getVisibleText()
