@@ -49,22 +49,22 @@ define(function (require) {
     }
   });
 
-  // registerSuite({
-  //   name: 'index',
-  //
-  //   'Home Page Header': function () {
-  //     return this.remote
-  //     .get(require.toUrl('/index.html'))
-  //       // .get(require.toUrl('build/index.html'))
-  //       .setFindTimeout(3000)
-  //       .findByCssSelector('#googleTranslate')
-  //         .getVisibleText()
-  //         .then(function (text) {
-  //           assert.strictEqual(text, 'SELECT LANGUAGE',
-  //             'The Home page GFW header should load properly with a Select Language element.');
-  //         });
-  //   }
-  // });
+  registerSuite({
+    name: 'index',
+
+    'Home Page Header': function () {
+      return this.remote
+      .get(require.toUrl('www/index.html'))
+        // .get(require.toUrl('build/index.html'))
+        .setFindTimeout(3000)
+        .findByCssSelector('#googleTranslate')
+          .getVisibleText()
+          .then(function (text) {
+            assert.strictEqual(text, 'SELECT LANGUAG',
+              'The Home page GFW header should load properly with a Select Language element.');
+          });
+    }
+  });
 
 
 });
